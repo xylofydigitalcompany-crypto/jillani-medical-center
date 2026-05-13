@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jillani Medical Centre | Naseerabad, Rawalpindi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;
+  --gold-light:#E8C97A;
+  --dark:#0A0A0A;
+  --dark2:#111111;
+  --dark3:#1A1A1A;
+  --dark4:#222222;
+  --text:#F5F0E8;
+  --muted:#9A9080;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--dark)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* EMERGENCY BANNER */
+.emergency-bar{background:linear-gradient(90deg,#8B0000,#B22222,#8B0000);text-align:center;padding:10px;font-size:13px;letter-spacing:1px;animation:pulse-bg 2s infinite}
+@keyframes pulse-bg{0%,100%{opacity:1}50%{opacity:.85}}
+.emergency-bar span{color:#FFD700;font-weight:600}
+
+/* NAV */
+nav{position:fixed;top:36px;width:100%;z-index:999;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.2)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:44px;height:44px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+.logo-text h1{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);line-height:1.1}
+.logo-text p{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:.3s;font-weight:500}
+.nav-links a:hover{color:var(--gold)}
+.nav-btn{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);padding:10px 22px;border:none;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:.3s}
+.nav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(201,168,76,.4)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 5% 60px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(201,168,76,.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(201,168,76,.05) 0%,transparent 50%),linear-gradient(180deg,#0A0A0A 0%,#111111 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;z-index:2;max-width:650px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);padding:6px 16px;border-radius:20px;margin-bottom:24px}
+.hero-badge span{color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.badge-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);line-height:1.15;margin-bottom:12px}
+.hero h1 .gold{color:var(--gold)}
+.hero-sub{font-size:14px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.hero p{font-size:16px;color:#B0A898;line-height:1.8;margin-bottom:36px;max-width:500px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);padding:14px 32px;border:none;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:.3s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(201,168,76,.45)}
+.btn-outline{background:transparent;color:var(--gold);padding:14px 32px;border:1px solid var(--gold);font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:.3s}
+.btn-outline:hover{background:rgba(201,168,76,.1);transform:translateY(-3px)}
+.hero-stats{position:absolute;right:5%;bottom:80px;display:flex;gap:40px;z-index:2}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:42px;color:var(--gold);line-height:1}
+.stat-label{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.stat-divider{width:1px;background:rgba(201,168,76,.2)}
+
+/* DIVIDER */
+.gold-line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 5%}
+
+/* SECTION */
+section{padding:90px 5%}
+.section-label{color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);line-height:1.2;margin-bottom:16px}
+.section-desc{color:#B0A898;line-height:1.8;max-width:560px}
+
+/* SERVICES */
+.services{background:var(--dark2)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;margin-top:50px;background:rgba(201,168,76,.1)}
+.service-card{background:var(--dark2);padding:36px 28px;transition:.4s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:.4s}
+.service-card:hover::before{height:100%}
+.service-card:hover{background:var(--dark3);transform:translateX(4px)}
+.svc-icon{font-size:32px;margin-bottom:16px}
+.svc-name{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:8px;color:var(--text)}
+.svc-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.svc-tag{display:inline-block;margin-top:14px;font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--gold);padding-bottom:2px}
+
+/* DOCTORS */
+.doctors{background:var(--dark)}
+.doctors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:50px}
+.doctor-card{background:var(--dark3);border:1px solid rgba(201,168,76,.1);padding:32px 24px;text-align:center;transition:.4s;position:relative}
+.doctor-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.doc-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--dark4),var(--dark2));border:2px solid var(--gold);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:28px}
+.doc-name{font-family:'Playfair Display',serif;font-size:18px;margin-bottom:4px}
+.doc-spec{color:var(--gold);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+.doc-exp{color:var(--muted);font-size:12px}
+.doc-badge{position:absolute;top:16px;right:16px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:9px;padding:3px 8px;letter-spacing:1px;text-transform:uppercase}
+
+/* WHY US */
+.why{background:var(--dark2)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:50px}
+.why-features{display:flex;flex-direction:column;gap:24px}
+.feature-item{display:flex;gap:18px;align-items:flex-start;padding:20px;border:1px solid rgba(201,168,76,.1);transition:.3s}
+.feature-item:hover{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.03)}
+.feat-icon{font-size:24px;min-width:40px}
+.feat-title{font-weight:600;font-size:15px;margin-bottom:4px}
+.feat-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.why-visual{background:var(--dark3);border:1px solid rgba(201,168,76,.2);padding:40px;position:relative;overflow:hidden}
+.why-visual::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.1),transparent)}
+.why-quote{font-family:'Playfair Display',serif;font-size:22px;line-height:1.6;color:var(--text);margin-bottom:24px}
+.why-quote .gold{color:var(--gold)}
+.why-sig{font-size:13px;color:var(--muted)}
+
+/* LOCATION */
+.location{background:var(--dark)}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:50px;align-items:start}
+.loc-info{display:flex;flex-direction:column;gap:20px}
+.loc-item{display:flex;gap:16px;align-items:flex-start;padding:20px;background:var(--dark3);border-left:3px solid var(--gold)}
+.loc-icon{font-size:22px}
+.loc-label{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+.loc-val{color:var(--text);font-size:14px;line-height:1.6}
+.map-box{background:var(--dark3);border:1px solid rgba(201,168,76,.2);height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;font-size:40px;position:relative;overflow:hidden}
+.map-box::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(201,168,76,.07),transparent 70%)}
+.map-text{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold)}
+.map-sub{font-size:12px;color:var(--muted);letter-spacing:1px}
+.map-btn{margin-top:8px;background:var(--gold);color:var(--dark);padding:10px 24px;border:none;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:.3s}
+.map-btn:hover{background:var(--gold-light)}
+
+/* APPOINTMENT */
+.appt{background:linear-gradient(135deg,var(--dark2),var(--dark3));border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);text-align:center}
+.appt-inner{max-width:600px;margin:0 auto}
+.appt h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,42px);margin-bottom:16px}
+.appt p{color:#B0A898;margin-bottom:36px;line-height:1.8}
+.appt-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.form-group input,.form-group select{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2);color:var(--text);padding:12px 16px;font-size:14px;outline:none;transition:.3s;font-family:'Inter',sans-serif}
+.form-group input:focus,.form-group select:focus{border-color:var(--gold);background:rgba(201,168,76,.08)}
+.form-group select option{background:var(--dark3)}
+
+/* FOOTER */
+footer{background:#060606;padding:50px 5% 24px;border-top:1px solid rgba(201,168,76,.15)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;margin-bottom:40px}
+.footer-brand h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--muted);line-height:1.7;max-width:280px}
+.footer-col h4{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{color:var(--muted);text-decoration:none;font-size:13px;transition:.2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(201,168,76,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:12px;color:var(--muted)}
+.footer-bottom .gold{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:14px 4%}
+  .nav-links{display:none}
+  .hero-stats{position:static;margin-top:40px;gap:24px}
+  .hero{flex-direction:column}
+  .why-grid,.loc-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .appt-form{grid-template-columns:1fr}
+}
+
+/* FADE IN ANIMATION */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- EMERGENCY BAR -->
+<div class="emergency-bar">
+  🚨 <span>24/7 Emergency Services Available</span> — Call Now: <span>+92 321 5556856</span> — Opposite Koh-e-Noor Mills, Peshawar Road, Naseerabad, Rawalpindi
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">✚</div>
+    <div class="logo-text">
+      <h1>Jillani Medical Centre</h1>
+      <p>Excellence in Healthcare</p>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#doctors">Doctors</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#location">Location</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Book Appointment</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content fade-in">
+    <div class="hero-badge"><div class="badge-dot"></div><span>Rawalpindi's Premier Medical Centre</span></div>
+    <p class="hero-sub">Naseerabad • Peshawar Road</p>
+    <h1>Where <span class="gold">Healing</span><br>Meets Excellence</h1>
+    <p>Jillani Medical Centre delivers world-class healthcare with compassion, precision, and cutting-edge technology — serving the communities of Naseerabad and greater Rawalpindi.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Book Appointment</button>
+      <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Our Services</button>
+    </div>
+  </div>
+  <div class="hero-stats fade-in">
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years Serving</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Specialists</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Emergency</div></div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="fade-in">
+    <p class="section-label">Our Departments</p>
+    <h2 class="section-title">Comprehensive Medical<br>Services Under One Roof</h2>
+    <p class="section-desc">From routine checkups to complex procedures, our expert team is equipped to handle all your healthcare needs with world-class precision.</p>
+  </div>
+  <div class="services-grid fade-in">
+    <div class="service-card">
+      <div class="svc-icon">🫁</div>
+      <div class="svc-name">Pulmonology</div>
+      <div class="svc-desc">Expert diagnosis and treatment of lung and respiratory conditions including asthma, COPD, and sleep disorders.</div>
+      <div class="svc-tag">PMDC Verified Specialist</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">❤️</div>
+      <div class="svc-name">Cardiology</div>
+      <div class="svc-desc">Advanced cardiac care with ECG, stress testing, and specialist consultations for heart health.</div>
+      <div class="svc-tag">Advanced Care</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">🦴</div>
+      <div class="svc-name">Orthopedics</div>
+      <div class="svc-desc">Bone, joint, and muscle care — from sports injuries to arthritis and surgical interventions.</div>
+      <div class="svc-tag">Expert Surgeons</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">👶</div>
+      <div class="svc-name">Pediatrics</div>
+      <div class="svc-desc">Specialized child healthcare from newborn to adolescence, delivered with warmth and expertise.</div>
+      <div class="svc-tag">Child Friendly</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">🔬</div>
+      <div class="svc-name">Diagnostics & Lab</div>
+      <div class="svc-desc">State-of-the-art pathology, radiology, X-Ray, ultrasound, and blood testing services.</div>
+      <div class="svc-tag">Rapid Results</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">🏥</div>
+      <div class="svc-name">Emergency Care</div>
+      <div class="svc-desc">Round-the-clock emergency services with trained staff and immediate response capabilities.</div>
+      <div class="svc-tag">Available 24/7</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">🩺</div>
+      <div class="svc-name">General Medicine</div>
+      <div class="svc-desc">Routine check-ups, chronic disease management, and preventive healthcare for all ages.</div>
+      <div class="svc-tag">Primary Care</div>
+    </div>
+    <div class="service-card">
+      <div class="svc-icon">💊</div>
+      <div class="svc-name">Pharmacy</div>
+      <div class="svc-desc">In-house pharmacy with a full range of medications and expert prescription guidance.</div>
+      <div class="svc-tag">In-House</div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- DOCTORS -->
+<section class="doctors" id="doctors">
+  <div class="fade-in">
+    <p class="section-label">Our Medical Team</p>
+    <h2 class="section-title">Trusted Specialists<br>Dedicated to Your Care</h2>
+    <p class="section-desc">Our team of PMDC-verified, highly experienced consultants brings decades of combined expertise across all specialties.</p>
+  </div>
+  <div class="doctors-grid fade-in">
+    <div class="doctor-card">
+      <div class="doc-badge">PMDC ✓</div>
+      <div class="doc-avatar">👨‍⚕️</div>
+      <div class="doc-name">Dr. [Name]</div>
+      <div class="doc-spec">Pulmonologist</div>
+      <div class="doc-exp">MBBS, FCPS Pulmonology • 8+ Years</div>
+    </div>
+    <div class="doctor-card">
+      <div class="doc-badge">PMDC ✓</div>
+      <div class="doc-avatar">👨‍⚕️</div>
+      <div class="doc-name">Dr. [Name]</div>
+      <div class="doc-spec">Cardiologist</div>
+      <div class="doc-exp">MBBS, FCPS Cardiology • 10+ Years</div>
+    </div>
+    <div class="doctor-card">
+      <div class="doc-badge">PMDC ✓</div>
+      <div class="doc-avatar">👩‍⚕️</div>
+      <div class="doc-name">Dr. [Name]</div>
+      <div class="doc-spec">Pediatrician</div>
+      <div class="doc-exp">MBBS, DCH • 7+ Years</div>
+    </div>
+    <div class="doctor-card">
+      <div class="doc-badge">PMDC ✓</div>
+      <div class="doc-avatar">👨‍⚕️</div>
+      <div class="doc-name">Dr. [Name]</div>
+      <div class="doc-spec">General Surgeon</div>
+      <div class="doc-exp">MBBS, FCPS Surgery • 12+ Years</div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- WHY US -->
+<section class="why" id="about">
+  <div class="fade-in">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">A Legacy of Trust<br>& Medical Excellence</h2>
+  </div>
+  <div class="why-grid fade-in">
+    <div class="why-features">
+      <div class="feature-item">
+        <div class="feat-icon">🏅</div>
+        <div><div class="feat-title">PMDC Verified Doctors</div><div class="feat-desc">All our specialists are certified and registered with the Pakistan Medical & Dental Council.</div></div>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">⚡</div>
+        <div><div class="feat-title">Quick Appointment Booking</div><div class="feat-desc">Fast-confirm system — your appointment is locked in immediately with zero waiting.</div></div>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">🎯</div>
+        <div><div class="feat-title">100% Patient Satisfaction</div><div class="feat-desc">Our specialists report consistently high patient recovery and satisfaction ratings.</div></div>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">📍</div>
+        <div><div class="feat-title">Central Naseerabad Location</div><div class="feat-desc">Easily accessible on Peshawar Road, opposite Koh-e-Noor Mills, Rawalpindi.</div></div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <div class="why-quote">"Our commitment is not just to treat illness — but to restore <span class="gold">quality of life</span> for every patient who walks through our doors."</div>
+      <div class="why-sig">— Jillani Medical Centre, Naseerabad</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT -->
+<section class="appt" id="appointment">
+  <div class="appt-inner fade-in">
+    <p class="section-label" style="text-align:center">Schedule a Visit</p>
+    <h2>Book Your Appointment</h2>
+    <p>Fill in your details below and our team will confirm your booking promptly.</p>
+    <div class="appt-form">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your full name"/>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+92 XXX XXXXXXX"/>
+      </div>
+      <div class="form-group">
+        <label>Department</label>
+        <select>
+          <option>Select Department</option>
+          <option>Pulmonology</option>
+          <option>Cardiology</option>
+          <option>Pediatrics</option>
+          <option>Orthopedics</option>
+          <option>General Medicine</option>
+          <option>Emergency</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Preferred Date</label>
+        <input type="date"/>
+      </div>
+      <div class="form-group full">
+        <button class="btn-primary" style="width:100%;padding:16px;font-size:14px;clip-path:none">Confirm Appointment →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="fade-in">
+    <p class="section-label">Find Us</p>
+    <h2 class="section-title">Visit Jillani<br>Medical Centre</h2>
+  </div>
+  <div class="loc-grid fade-in">
+    <div class="loc-info">
+      <div class="loc-item">
+        <div class="loc-icon">📍</div>
+        <div><div class="loc-label">Address</div><div class="loc-val">Naseerabad, Opposite Koh-e-Noor Mills<br>Peshawar Road, Rawalpindi</div></div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-icon">🕐</div>
+        <div><div class="loc-label">Hours</div><div class="loc-val">Open 24 Hours, 7 Days a Week<br>Consultation & Emergency Always Available</div></div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-icon">📞</div>
+        <div><div class="loc-label">Contact</div><div class="loc-val">+92 321 5556856<br>Video Consultation Available 24/7</div></div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-icon">💳</div>
+        <div><div class="loc-label">Consultation Fee</div><div class="loc-val">Starting from Rs. 1,500<br>Online payment available</div></div>
+      </div>
+    </div>
+    <div class="map-box">
+      <div style="font-size:50px">🗺️</div>
+      <div class="map-text">Naseerabad, Rawalpindi</div>
+      <div class="map-sub">Opposite Koh-e-Noor Mills, Peshawar Road</div>
+      <button class="map-btn" onclick="window.open('https://maps.google.com/?q=Naseerabad+Peshawar+Road+Rawalpindi','_blank')">Open in Google Maps →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>✚ Jillani Medical Centre</h2>
+      <p>Providing compassionate, high-quality medical care to the people of Naseerabad and Rawalpindi since our founding. Your health is our highest priority.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Departments</h4>
+      <ul>
+        <li><a href="#">Pulmonology</a></li>
+        <li><a href="#">Cardiology</a></li>
+        <li><a href="#">Pediatrics</a></li>
+        <li><a href="#">Orthopedics</a></li>
+        <li><a href="#">Emergency</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#appointment">Book Appointment</a></li>
+        <li><a href="#doctors">Our Doctors</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#location">Location</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 <span class="gold">Jillani Medical Centre</span>. All rights reserved. Naseerabad, Rawalpindi.</p>
+    <p>Designed with <span class="gold">♥</span> for better healthcare</p>
+  </div>
+</footer>
+
+<script>
+// Scroll fade-in
+const obs = new IntersectionObserver(els => {
+  els.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible') });
+},{threshold:.12});
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// Appointment button - sends via WhatsApp to clinic number
+document.querySelector('.appt-form .btn-primary').addEventListener('click', function(){
+  const name = document.querySelector('.appt-form input[type="text"]').value.trim();
+  const phone = document.querySelector('.appt-form input[type="tel"]').value.trim();
+  const dept = document.querySelector('.appt-form select').value;
+  const date = document.querySelector('.appt-form input[type="date"]').value;
+
+  if(!name){ alert('Please enter your full name.'); return; }
+  if(!phone){ alert('Please enter your phone number.'); return; }
+  if(dept === 'Select Department'){ alert('Please select a department.'); return; }
+  if(!date){ alert('Please select a preferred date.'); return; }
+
+  const formattedDate = new Date(date).toLocaleDateString('en-PK',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+  const msg = `🏥 *NEW APPOINTMENT REQUEST*\n*Jillani Medical Centre*\n\n👤 *Patient:* ${name}\n📞 *Phone:* ${phone}\n🏥 *Department:* ${dept}\n📅 *Date:* ${formattedDate}\n\n_Please call the patient to confirm._`;
+
+  const waNumber = '923215556856';
+  const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+
+  // Open WhatsApp silently in background tab
+  const win = window.open(waURL, '_blank');
+  if(win) win.opener = null;
+
+  // Show success to patient
+  this.textContent = '✓ Appointment Request Sent!';
+  this.style.background = 'linear-gradient(135deg,#2d7a2d,#3a9a3a)';
+  this.style.color = '#fff';
+
+  // Reset form after 3 seconds
+  setTimeout(() => {
+    document.querySelector('.appt-form input[type="text"]').value = '';
+    document.querySelector('.appt-form input[type="tel"]').value = '';
+    document.querySelector('.appt-form select').value = 'Select Department';
+    document.querySelector('.appt-form input[type="date"]').value = '';
+    this.textContent = 'Confirm Appointment →';
+    this.style.background = '';
+    this.style.color = '';
+  }, 4000);
+});
+</script>
+</body>
+</html>
